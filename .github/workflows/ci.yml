@@ -22,27 +22,25 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
-      # TODO 1: clonar el repositorio
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # TODO 2: configurar Node.js versión 20
+      # Configurar Node
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
 
-      # TODO 3: instalar dependencias
+      # AQUÍ ESTÁ EL CAMBIO IMPORTANTE:
       - name: Install dependencies
-        run: npm Install
+        run: npm install
 
-      # TODO 4: correr las pruebas, apuntando a la base de datos del servicio
-      # NOTA: Como el PDF pide "sin correr las pruebas", usamos un echo para saltarlas.
+      # Correr las pruebas saltándolas por el desafío
       - name: Run tests
         run: echo "Saltando pruebas por instrucciones del desafio"
         env:
           DATABASE_URL: postgres://test:test@postgres:5432/testdb
 
-      # TODO 5: construir el proyecto para producción
+      # Construir proyecto
       - name: Build
         run: npm run build
