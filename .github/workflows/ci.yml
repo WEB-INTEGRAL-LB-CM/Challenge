@@ -34,7 +34,7 @@ jobs:
 
       # TODO 3: instalar dependencias
       - name: Install dependencies
-        run: npm ci
+        run: npm Install
 
       # TODO 4: correr las pruebas, apuntando a la base de datos del servicio
       # NOTA: Como el PDF pide "sin correr las pruebas", usamos un echo para saltarlas.
